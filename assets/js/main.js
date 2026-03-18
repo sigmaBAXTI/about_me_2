@@ -225,4 +225,35 @@
   window.addEventListener('load', navmenuScrollspy);
   document.addEventListener('scroll', navmenuScrollspy);
 
+  /**
+   * View More / View Less functionality for certifications
+   */
+  const viewMoreBtn = document.getElementById('viewMoreBtn');
+  const hiddenCerts = document.querySelectorAll('.cert-hidden');
+
+  if (viewMoreBtn) {
+    viewMoreBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      
+      hiddenCerts.forEach(cert => {
+        cert.classList.toggle('show');
+      });
+
+      // Toggle button text and icon
+      const icon = viewMoreBtn.querySelector('i');
+      if (viewMoreBtn.classList.contains('collapsed')) {
+        viewMoreBtn.classList.remove('collapsed');
+        viewMoreBtn.innerHTML = '<i class="bi bi-chevron-down"></i> Ko\'proq ko\'rish';
+      } else {
+        viewMoreBtn.classList.add('collapsed');
+        viewMoreBtn.innerHTML = '<i class="bi bi-chevron-up"></i> Kamroq ko\'rish';
+      }
+
+      // Reinitialize AOS animations for new visible elements
+      if (typeof AOS !== 'undefined') {
+        AOS.refresh();
+      }
+    });
+  }
+
 })();

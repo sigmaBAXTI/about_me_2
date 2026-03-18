@@ -1393,3 +1393,39 @@ section,
 .starter-section {
   /* Add your styles here */
 }
+
+/*--------------------------------------------------------------
+# Certifications - Hidden Certificates
+--------------------------------------------------------------*/
+.cert-hidden {
+  display: none;
+}
+
+.cert-hidden.show {
+  display: block;
+}
+
+#viewMoreBtn {
+  background-color: var(--accent-color);
+  border: none;
+  padding: 10px 30px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 50px;
+  transition: all 0.3s ease-in-out;
+}
+
+#viewMoreBtn:hover {
+  background-color: #0d7ec4;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(20, 157, 221, 0.3);
+}
+
+#viewMoreBtn i {
+  margin-right: 8px;
+  transition: transform 0.3s ease-in-out;
+}
+
+#viewMoreBtn.collapsed i {
+  transform: rotate(180deg);
+}
